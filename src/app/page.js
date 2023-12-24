@@ -1,95 +1,78 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
+import React, { useEffect } from 'react'
+import Navbar from "@/components/Navbar"
+import Clientes from "@/sections/Clientes"
+import Contacto from "@/sections/Contacto"
+import Descripcion from "@/sections/Descripcion"
+import Habilidades from "@/sections/Habilidades"
+import Inicio from "@/sections/Inicio"
+import Proyectos from "@/sections/Proyectos"
+import { Text,Button,Flex,Box, useBreakpointValue } from "@chakra-ui/react"
+import { useScroll,motion, } from "framer-motion"
+import Experiencia from '@/sections/Experiencia'
 
 export default function Home() {
+
+  const [activeSection, setActiveSection] = React.useState(null);
+  const sections = React.useRef([]);
+  const movil = useBreakpointValue({
+    base : true,
+    md : false
+  })
+	const handleScrollY = (e) => {
+    
+		const pageYOffset = e.currentTarget.scrollTop + 300;
+		let newActiveSection = null;
+		sections.current.forEach((section) => {
+		const sectionOffsetTop = section.offsetTop;
+		const sectionHeight = section.offsetHeight;
+		if (pageYOffset >= sectionOffsetTop && pageYOffset < sectionOffsetTop + sectionHeight) {
+			newActiveSection = section.id;
+		}
+		});
+		setActiveSection(newActiveSection);
+	};
+
+  const handleScrollX = (e) => {
+		const pageXOffset = e.currentTarget.scrollLeft + 350;
+		let newActiveSection = null;
+		sections.current.forEach((section) => {
+		const sectionOffsetLeft = section.offsetLeft;
+		const sectionWidth = section.offsetWidth;
+		if (pageXOffset >= sectionOffsetLeft && pageXOffset < sectionOffsetLeft + sectionWidth) {
+			newActiveSection = section.id;
+		}
+		});
+		setActiveSection(newActiveSection);
+	};
+
+	React.useEffect(() => {
+		sections.current = document.querySelectorAll('[data-section]');
+		setActiveSection('inicio');
+	}, []);
+  
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <Box as={motion.main}
+    onScroll={movil ? handleScrollX : handleScrollY}
+    position={'fixed'} 
+    w={'100vw'} 
+    h={'100vh'} 
+    overflowY={{base:'hidden',md:'auto'}} 
+    overflowX={{base:'auto',md:'hidden'}} 
+    scrollSnapType={'x mandatory'}
+    >
+      <Navbar seccionActiva={activeSection}/>
+      <Flex w={'max-content'} direction={{base:'row',md:'column'}}   >
+        <Inicio />
+        <Descripcion/>
+        <Habilidades />
+        <Experiencia />
+        <Proyectos />
+        <Clientes />
+        <Contacto />
+      </Flex>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </Box>
   )
 }
