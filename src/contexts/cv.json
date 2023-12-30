@@ -1,0 +1,97 @@
+{
+    "perfil":{
+        "url_imagen":"",
+        "nombre": "Kevin",
+        "apellido": "Kener",
+        "rol": "Desarrollador Fullstack",
+        "redes": {
+            "facebook": "",
+            "instagram": "",
+            "twitter": "",
+            "linkedin": "",
+            "github": ""
+        },
+        "telefono": "",
+        "localidad": "",
+        "web": ""
+    },
+    "descripcion": "¡Hola! Soy Kevin Kener, un Desarrollador Fullstack de 28 años con más de 6 años de experiencia, y estoy aquí para impulsar tus proyectos al siguiente nivel. \nMi especialización en el backend se centra en Python, donde destaco utilizando el framework FastAPI para construir soluciones eficientes y robustas.\nEn el mundo del desarrollo de videojuegos, marco la diferencia al utilizar herramientas líderes como Unity y Unreal Engine. Esto me permite crear experiencias inmersivas que cautivan a los usuarios y destacan en la competencia. \nImagina tus ideas tomando vida con la creatividad y experiencia que puedo aportar a tus proyectos de desarrollo de software y videojuegos.\nAdemás, mi presencia en la escena musical bajo el nombre 'Albakore' agrega un toque único a mi perfil. Con tres álbumes lanzados bajo el prestigioso sello Glitch Hop Community, mi habilidad para fusionar la tecnología con la creatividad no tiene límites. \nSoy un creador apasionado, capaz de ofrecer soluciones tanto técnicas como artísticas.En el campo de la robótica, he liderado proyectos innovadores utilizando hardware Arduino, demostrando mi versatilidad y habilidades para enfrentar desafíos tecnológicos.\nEstoy aquí para impulsar tu visión. Si buscas más que un desarrollador, sino un colaborador que elevará tus ideas, entonces estás en el lugar correcto. \nPermíteme llevar tus proyectos más allá de las expectativas. ¡Hablemos sobre cómo puedo contribuir al éxito de tu próximo proyecto!",
+    "habilidades":[
+        {
+            "titulo":"Python",
+            "descripcion":"Es el lenguaje que mas domino",
+            "url_logo":"",
+            "tags":["FastAPI","Pydantic"]
+        },
+        {
+            "titulo":"Javascript",
+            "descripcion":"Es el lenguaje que mas domino",
+            "url_logo":"",
+            "tags":["FastAPI","Pydantic"]
+        }
+    ],
+    "experiencia":[
+        {
+            "empresa":"Gobierno de la ciudad de Buenos Aires",
+            "cargo":"Desarrollador Fullstack",
+            "anio":" 2021",
+            "descripcion":"Todo lo referido"
+        },
+        {
+            "empresa":"Fuerza Aerea Argentina",
+            "cargo":"Desarrollador Backend",
+            "anio":" 2018",
+            "descripcion":"Todo lo referido"
+        },
+        {
+            "empresa":"UNNOBA",
+            "cargo":"Desarrollador Arduino",
+            "anio":" 2016",
+            "descripcion":"Todo lo referido"
+        },
+        {
+            "empresa":"UNNOBA",
+            "cargo":"Desarrollador Arduino",
+            "anio":" 2016",
+            "descripcion":"Todo lo referido"
+        }
+    ],
+    "proyectos":[
+        {
+            "url_imagen":"img/projects/evolutiva.png",
+            "titulo":"Evolutiva Consulting",
+            "descripcion":"Landing Page para agencia de marketing",
+            "url_proyecto":"http://consultingevolutiva.com/",
+            "tags": ["React.js", "Next.js", "Chakra-ui"]
+        },
+        {
+            "url_imagen":"img/projects/lmtokenomics.png",
+            "titulo":"LM Tokenomics",
+            "descripcion":"Landing Page",
+            "url_proyecto":"http://lmtokenomics.com.ar/",
+            "tags": ["HTML", "CSS", "Javascript"]
+        },
+        {
+            "url_imagen":"img/projects/chiesa.png",
+            "titulo":"Juan Pablo Chiesa",
+            "descripcion":"Landing Page",
+            "url_proyecto":"https://juanpablochiesa.com.ar/",
+            "tags": ["HTML", "CSS", "Javascript"]
+        },
+        {
+            "url_imagen":"img/projects/tad.png",
+            "titulo":"Tramites a Distancia (TAD)",
+            "descripcion":"Sistema de digitalizacion de tramites",
+            "url_proyecto":"https://tad.buenosaires.gob.ar/",
+            "tags": ["Python", "FastAPI", "Next.js", "Bootstrap", "Oracle DB","Obelisco CSS"]
+        },
+        {
+            "url_imagen":"img/projects/std.png",
+            "titulo":"Sistema de Tramites Digitales (STD)",
+            "descripcion":"Sistema de digitalizacion de tramites",
+            "url_proyecto":"https://tramitesdigitales.buenosaires.gob.ar/",
+            "tags": ["Python", "FastAPI", "SQL Model", "Pydantic", "Pandas", "Mongo DB", "Oracle DB", "Next.js", "Bootstrap","Obelisco CSS"]
+        }
+    ]
+
+}
