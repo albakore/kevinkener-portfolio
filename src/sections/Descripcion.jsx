@@ -1,13 +1,16 @@
 import SeccionPagina from "@/components/SeccionPagina";
 import React from "react";
-import { Text, Flex, VStack, HStack, Button, Box, useBreakpointValue } from "@chakra-ui/react";
+import { Text, Flex,Container, VStack, HStack, Button, Box, useBreakpointValue } from "@chakra-ui/react";
+import { getCV } from "@/contexts/Portfolio";
 export default function Descripcion({ref}) {
 	const movil = useBreakpointValue({base:true,md:false})
+	const {descripcion} = getCV()
 	return (
 		<SeccionPagina id='descripcion' noFullHeight={!movil} withScrollY={movil}>
 			{/* <Text fontSize={"3xl"} mb={5}>Sobre Mi</Text> */}
+			<Container maxW={'5xl'}>
 			<Flex ref={ref} maxW={'90vw'}  direction={'column'} gap={5}  >
-				<HStack alignItems={'start'} gap={5}>
+				{/* <HStack alignItems={'start'} gap={5}>
 					<VStack w={'50%'} alignItems={'start'}>
 						<Text fontSize={"xl"} as="h1">
 							Titulito
@@ -65,11 +68,14 @@ export default function Descripcion({ref}) {
 							praesentium quisquam voluptatem, quidem aut?
 						</Text>
 					</VStack>
-				</HStack>
+				</HStack> */}
 
-        
+				<Text fontSize={'xl'}>
+				{descripcion}
+				</Text>
 
 			</Flex>
+			</Container>
 		</SeccionPagina>
 	);
 }
