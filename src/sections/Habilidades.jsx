@@ -25,14 +25,11 @@ export default function Habilidades() {
 				<Text fontSize={"5xl"} align={"center"} mb={10}>
 					Habilidades
 				</Text>
-				<Podio />
-				<Text as="h3" fontSize={"3xl"}>
-					Backend
-				</Text>
+				{/* <Podio /> */}
 
 				<VStack gap={5}>
 					{habilidades.map((skill, index) => (
-						<Skill key={index} titulo={skill.titulo} tags={skill.tags}>
+						<Skill icon={skill.url_logo} key={index} titulo={skill.titulo} tags={skill.tags}>
 							{skill.descripcion}
 						</Skill>
 
@@ -93,9 +90,10 @@ function Skill({ icon, titulo, tags, children }) {
 			p={8}
 			boxShadow={"xl"}
 			borderRadius={"xl"}
+			w={{ base: 'full', md: "inherit" }}
 		>
-			<Flex gap={8} direction={{ base: 'column', md: "row" }}>
-				<Image src={"/techLogo/iconPython.svg"} w={{ base: '100px', md: 'inherit' }} alignSelf={'center'} alt="python" />
+			<Flex gap={8} direction={{ base: 'row', md: "row" }}>
+				{icon && <Image src={icon} w={{ base: '50px', md: 'inherit' }} alignSelf={'center'} alt={titulo} />}
 				<VStack alignItems={'start'}>
 					<Text fontSize={'xl'} fontWeight={600}>{titulo}</Text>
 					<Text fontSize={'sm'}>

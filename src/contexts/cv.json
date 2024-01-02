@@ -20,7 +20,7 @@
         {
             "titulo":"Python",
             "descripcion":"Es el lenguaje que mas domino",
-            "url_logo":"",
+            "url_logo":"/techLogo/iconPython.svg",
             "tags":["FastAPI","Pydantic"]
         },
         {

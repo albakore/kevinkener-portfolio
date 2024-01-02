@@ -2,6 +2,9 @@ import SeccionPagina from "@/components/SeccionPagina";
 import React from "react";
 import { Text, Flex,Container, VStack, HStack, Button, Box, useBreakpointValue } from "@chakra-ui/react";
 import { getCV } from "@/contexts/Portfolio";
+import Markdown from 'react-markdown'
+
+
 export default function Descripcion({ref}) {
 	const movil = useBreakpointValue({base:true,md:false})
 	const {descripcion} = getCV()
@@ -69,9 +72,11 @@ export default function Descripcion({ref}) {
 						</Text>
 					</VStack>
 				</HStack> */}
-
+				<Markdown>
+						{descripcion}
+						</Markdown>
 				<Text fontSize={'xl'}>
-				{descripcion}
+						
 				</Text>
 
 			</Flex>
