@@ -7,7 +7,7 @@ import Descripcion from "@/sections/Descripcion"
 import Habilidades from "@/sections/Habilidades"
 import Inicio from "@/sections/Inicio"
 import Proyectos from "@/sections/Proyectos"
-import { Text, Button, Flex, Box, useBreakpointValue } from "@chakra-ui/react"
+import { Text, Button, Flex, Box, useBreakpointValue,useColorModeValue } from "@chakra-ui/react"
 import { useScroll, motion, } from "framer-motion"
 import Experiencia from '@/sections/Experiencia'
 import { perfilContext } from '@/contexts/Portfolio'
@@ -21,6 +21,8 @@ export default function Home() {
     base: true,
     md: false
   })
+  const bg = useColorModeValue('', !movil && 'linear-gradient(180deg, rgba(184,175,166,1) 0%, rgba(105,88,84,1) 25%, rgba(98,77,72,1) 50%, rgba(55,45,54,1) 75%, rgba(29,26,33,1) 100%)')
+  
   const handleScrollY = (e) => {
 
     const pageYOffset = e.currentTarget.scrollTop + 300;
@@ -65,14 +67,20 @@ export default function Home() {
         overflowX={{ base: 'auto', md: 'hidden' }}
         scrollSnapType={'x mandatory'}
       >
+        {
+          movil
+          ? <Box pointerEvents={'none'} position={'fixed'} w={'100%'} h={'100svh'} top={0} left={0} bg={'radial-gradient(70vw 80vh  at center, rgba(0,0,0,0) 70%, rgba(0,0,0,0.5) 120%, rgba(0,0,0,1) 250%)'}></Box>
+          : <Box pointerEvents={'none'} position={'fixed'} w={'100%'} h={'100svh'} top={0} left={0} bg={'radial-gradient(100vh 50vw  at center, rgba(0,0,0,0) 70%, rgba(0,0,0,0.5) 120%, rgba(0,0,0,1) 250%)'}></Box>
+      }
+          
         <Navbar seccionActiva={activeSection} />
-        <Flex w={'max-content'} direction={{ base: 'row', md: 'column' }}   >
+        <Flex w={'max-content'} direction={{ base: 'row', md: 'column' }}  bg={bg} >
           <Inicio />
           <Descripcion />
           <Habilidades />
           <Experiencia />
           <Proyectos />
-          <Clientes />
+          {/* <Clientes /> */}
           <Contacto />
         </Flex>
 

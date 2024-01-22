@@ -1,5 +1,6 @@
 'use client';
 import { ChakraProvider, Box, extendTheme } from '@chakra-ui/react'
+import { ColorModeScript } from '@chakra-ui/react'
 import './global.css'
 import '@fontsource-variable/urbanist';
 
@@ -9,6 +10,10 @@ import '@fontsource-variable/urbanist';
 // }
 
 const theme = extendTheme({
+  config: {
+    initialColorMode: 'dark',
+    useSystemColorMode: false,
+  },
   fonts: {
     heading: `'Urbanist Variable', sans-serif;`,
     body: `'Urbanist Variable', sans-serif`,
@@ -19,7 +24,8 @@ export default function RootLayout({ children }) {
   return (
     <html  lang="es" >
       <body>
-        <ChakraProvider theme={theme}>
+        <ChakraProvider theme={theme} >
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           {children}
         </ChakraProvider>
       </body>
