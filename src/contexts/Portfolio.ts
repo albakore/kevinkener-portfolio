@@ -6,6 +6,6 @@ const perfil_cv = require("./cv.json")
 
 export const perfilContext = React.createContext<PerfilCV>(perfil_cv)
 
-export function getCV(){
-    return React.useContext(perfilContext)
+export function GetCV(){
+    return React.useContext<PerfilCV>(perfilContext)
 }
