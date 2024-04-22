@@ -1,7 +1,4 @@
-const path = require('path')
 /** @type {import('next').NextConfig} */
-
-const __dirname = new URL('.',import.meta.url).pathname
 
 const nextConfig = {
 	// output: 'export',
@@ -13,11 +10,6 @@ const nextConfig = {
 			use: 'raw-loader'
 		  }
 		)
-
-		config.resolve.alias = {
-			...config.resolve.alias,
-			'@': path.resolve(__dirname,'./')
-		}
 	
 		return config
 	  }
