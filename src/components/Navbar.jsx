@@ -8,12 +8,12 @@ import { FaUserTie, FaCode, FaLaptop, FaComments } from "react-icons/fa";
 
 
 const listaMenu = {
-	inicio: <IoHome />,
-	descripcion: <IoIosPaper />,
-	habilidades: <FaCode />,
-	experiencia: <FaUserTie />,
-	proyectos: <FaLaptop />,
-	contacto: <FaComments />,
+	Inicio: <IoHome />,
+	Descripcion: <IoIosPaper />,
+	Habilidades: <FaCode />,
+	Experiencia: <FaUserTie />,
+	Proyectos: <FaLaptop />,
+	Contacto: <FaComments />,
 }
 
 export default function Navbar({ seccionActiva }) {
@@ -42,7 +42,7 @@ export default function Navbar({ seccionActiva }) {
 			whileHover={{ translate: `${movil}`, opacity: 1, scale: 1, boxShadow: '0 0 10px 10px RGBA(0, 0, 0, 0.08)' }}
 			zIndex={1000}
 		>
-			{Object.keys(listaMenu).map((labelSeccion, index) => <IconSeccion key={index} label={labelSeccion} icono={listaMenu[labelSeccion]} activo={seccionActiva == labelSeccion} to={labelSeccion} />)}
+			{Object.keys(listaMenu).map((labelSeccion, index) => <IconSeccion key={index} label={labelSeccion} icono={listaMenu[labelSeccion]} activo={seccionActiva == labelSeccion} to={labelSeccion.toLowerCase()} />)}
 		</Flex>
 	)
 }
@@ -58,9 +58,10 @@ function IconSeccion({ label, icono, activo, to }) {
 		base: true,
 		md: false,
 	})
-	const colorBase = useColorModeValue('gray.500', !modo_movil && '#372D36')
-	const colorActivo = useColorModeValue('blue.300', !modo_movil && '#624d48')
+	const colorBase = useColorModeValue('gray.500', !modo_movil && '#2f2f2f')
+	const colorActivo = useColorModeValue('blue.300', !modo_movil && '#435d85')
 	const handleScroll = () => seccion.current.scrollIntoView({ block: 'start', behavior: 'smooth' })
+	
 
 	React.useEffect(() => {
 		seccion.current = document.getElementById(to)
