@@ -45,4 +45,6 @@ type Redes = {
   twitter: string;
   linkedin: string;
   github: string;
+  spotify: string;
+  soundcloud: string;
 }
