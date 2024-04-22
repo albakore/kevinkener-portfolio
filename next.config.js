@@ -2,7 +2,7 @@
 
 const nextConfig = {
 	// output: 'export',
-	distDir: 'build',
+	// distDir: 'build',
 	webpack: (config) => {
 		config.module.rules.push(
 		  {
