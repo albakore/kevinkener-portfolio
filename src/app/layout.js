@@ -3,6 +3,8 @@ import { ChakraProvider, Box, extendTheme } from '@chakra-ui/react'
 import { ColorModeScript } from '@chakra-ui/react'
 import './global.css'
 import '@fontsource-variable/urbanist';
+import { Suspense } from 'react';
+import Script from 'next/script';
 
 // export const metadata = {
 //   title: 'Create Next App',
@@ -11,24 +13,44 @@ import '@fontsource-variable/urbanist';
 
 const theme = extendTheme({
   config: {
-    initialColorMode: 'dark',
-    useSystemColorMode: false,
+    // initialColorMode: 'light',
+    useSystemColorMode: true,
   },
   fonts: {
     heading: `'Urbanist Variable', sans-serif;`,
     body: `'Urbanist Variable', sans-serif`,
   },
+  styles: {
+    global: {
+      'h1': {
+        fontSize: '28px',
+        fontWeight: 700
+      },
+      'h2': {
+        fontSize: '20px',
+        fontWeight: 500
+      },
+      'p': {
+        fontSize: '16px',
+        fontWeight: 400
+      },
+
+    },
+  }
 })
 
 export default function RootLayout({ children }) {
   return (
-    <html  lang="es" >
+    <html lang="es" >
       <body>
-        <ChakraProvider theme={theme} >
-          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-          {children}
-        </ChakraProvider>
+        <Suspense fallback={''}>
+          <ChakraProvider theme={theme} >
+            <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+            {children}
+          </ChakraProvider>
+        </Suspense>
       </body>
+      <Script src="https://web3forms.com/client/script.js" async defer></Script>
     </html>
   )
 }
