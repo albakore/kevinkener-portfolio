@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": "./", // Asegúrate de tener esto
+    "paths": {
+      "@/*": ["src/*"] // Aquí ajustas el alias
+    },
     "lib": [
       "dom",
       "dom.iterable",
@@ -26,7 +30,8 @@
     "next-env.d.ts",
     "build/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "src/**/*"
   ],
   "exclude": [
     "node_modules"
