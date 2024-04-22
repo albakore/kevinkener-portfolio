@@ -8,10 +8,11 @@ import Habilidades from "@/sections/Habilidades"
 import Inicio from "@/sections/Inicio"
 import Proyectos from "@/sections/Proyectos"
 import { Text, Button, Flex, Box, useBreakpointValue,useColorModeValue } from "@chakra-ui/react"
-import { useScroll, motion, } from "framer-motion"
+import { motion } from "framer-motion"
 import Experiencia from '@/sections/Experiencia'
 import { perfilContext } from '@/contexts/Portfolio'
 import perfil_cv from "../contexts/cv.json"
+
 
 export default function Home() {
 
@@ -21,7 +22,7 @@ export default function Home() {
     base: true,
     md: false
   })
-  const bg = useColorModeValue('', !movil && 'linear-gradient(180deg, rgba(184,175,166,1) 0%, rgba(105,88,84,1) 25%, rgba(98,77,72,1) 50%, rgba(55,45,54,1) 75%, rgba(29,26,33,1) 100%)')
+  const bg = useColorModeValue('', !movil && 'linear-gradient(180deg, rgba(184, 175, 166, 1) 0%, rgb(103 99 98) 25%, rgb(87 83 82) 50%, rgb(49 46 48) 75%, rgba(29, 26, 33, 1) 100%)')
   
   const handleScrollY = (e) => {
 
@@ -74,13 +75,12 @@ export default function Home() {
       }
           
         <Navbar seccionActiva={activeSection} />
-        <Flex w={'max-content'} direction={{ base: 'row', md: 'column' }}  bg={bg} >
+        <Flex w={'max-content'} direction={{ base: 'row', md: 'column' }} bg={bg} >
           <Inicio />
           <Descripcion />
           <Habilidades />
           <Experiencia />
           <Proyectos />
-          {/* <Clientes /> */}
           <Contacto />
         </Flex>
 
