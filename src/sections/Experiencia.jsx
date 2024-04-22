@@ -1,7 +1,12 @@
+'use client'
 import SeccionPagina from '@/components/SeccionPagina'
-import React from 'react'
+import React, { lazy } from 'react'
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Center, Circle, Container, Flex, Spacer, Stack, StackDivider, Text, useBreakpointValue, useColorModeValue } from '@chakra-ui/react'
 import { GetCV } from '@/contexts/Portfolio'
+import Markdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+
+
 export default function Experiencia() {
 	const movil = useBreakpointValue({ base: false, md: true })
 	const {experiencia} = GetCV()
@@ -48,11 +53,23 @@ function Periodo({ invertido, children }) {
 
 function Empleo({data, invertido = false }) {
 	const movil = useBreakpointValue({ base: true, md: false });
-	const colorBase = useColorModeValue('', !movil && '#473936')
-	const colorActivo = useColorModeValue('', !movil && '#584442')
-	const colorAnio = useColorModeValue('gray.300', !movil && '#473936')
+	const colorBase = useColorModeValue('', !movil && '#333333')
+	const colorActivo = useColorModeValue('', !movil && '#3d3c3c')
+	const colorAnio = useColorModeValue('gray.300', !movil && '#3d3c3c')
 	const colorAnioTexto = useColorModeValue('white', !movil && 'white')
-	const colorLinea = useColorModeValue('white', !movil && '#584442')
+	const colorLinea = useColorModeValue('white', !movil && '#373737')
+	const [descripcion, setDescripcion] = React.useState(null)
+
+	React.useEffect(() => {
+		const loadMarkDown = async () => {
+			const markdown = await import("../contexts/experiencia_laboral/unnoba.md")
+			const data = await fetch(markdown.default)
+			const texto = await data.
+			setDescripcion()
+		}
+		loadMarkDown()
+	},[])
+
 	return (
 		<Flex borderRadius={25} w={{ base: '100%', md: '50%' }} justifyContent={'space-between'} alignItems={'center'} direction={invertido ? { base: 'row-reverse', md: 'row-reverse' } : { base: 'row-reverse', md: 'row' }}
 		>
@@ -68,11 +85,13 @@ function Empleo({data, invertido = false }) {
 
 					</AccordionButton>
 					<AccordionPanel pb={4}>
-					{data.descripcion}
+						{}
+					{/* <Markdown remarkPlugins={[remarkGfm]}>{descripcion}</Markdown>	 */}
+					{/* {data.descripcion} */}
 					</AccordionPanel>
 				</AccordionItem>
 			</Accordion>
-			<Center outline={'2px solid black'} outlineColor={colorLinea} w={0} h={'100%'} zIndex={20}>
+			<Center outline={'1px solid black'} outlineColor={colorLinea} w={0} h={'100%'} zIndex={20}>
 				<Circle size={'35px'} bg={colorAnio} fontSize={12} color={colorAnioTexto} zIndex={21}>{data.anio}</Circle>
 			</Center>
 		</Flex>
