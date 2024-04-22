@@ -1,3 +1,4 @@
+'use client'
 import SeccionPagina from '@/components/SeccionPagina'
 import React from 'react'
 import { Badge, Box, Container, Button, Flex, HStack, Image, Link, Text, VStack, useBreakpointValue, Spacer, useColorModeValue } from '@chakra-ui/react'

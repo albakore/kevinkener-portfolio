@@ -1,3 +1,4 @@
+'use client'
 import SeccionPagina from "@/components/SeccionPagina";
 import React from "react";
 import {
@@ -110,7 +111,7 @@ function Podio() {
 
 function Skill({ icon, titulo, tags, children }) {
 	const movil = useBreakpointValue({ base: true, md: false });
-	const colorActivo = useColorModeValue('blue.300', !movil && 'blackAlpha.300')
+	const colorActivo = useColorModeValue('gray.50', !movil && 'blackAlpha.300')
 	return (
 		<Box
 			alignItems={"center"}
