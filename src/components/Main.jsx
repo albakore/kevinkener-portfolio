@@ -74,7 +74,7 @@ export default function Main({perfil}) {
           : <Box zIndex={-1} pointerEvents={'none'} position={'fixed'} w={'100%'} h={'100svh'} top={0} left={0} bg={'radial-gradient(100vh 50vw  at center, rgba(0,0,0,0) 70%, rgba(0,0,0,0.5) 120%, rgba(0,0,0,1) 250%)'}></Box>
         }
           
-        {/* <Navbar seccionActiva={activeSection} /> */}
+        <Navbar seccionActiva={activeSection} />
         <Flex w={'max-content'} direction={{ base: 'row', md: 'column' }} bg={bg} >
           <Inicio />
           <Descripcion />

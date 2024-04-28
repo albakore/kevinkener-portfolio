@@ -31,8 +31,6 @@ export default function Contacto() {
   };
 
   React.useEffect(() => {
-    if (token)
-      console.log(`hCaptcha Token: ${token}`);
 
   }, [token]);
 

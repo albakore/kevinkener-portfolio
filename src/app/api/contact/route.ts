@@ -26,7 +26,7 @@ export async function POST(req : NextRequest, res: NextResponse) {
 	}
 
 	const requestMail = Object.fromEntries(contacto.entries())
-	console.log(requestMail)
+
 	const response = await fetch(process.env.WEB3FORM_URL_SUBMIT, {
 		method: "POST",
 		headers: {
