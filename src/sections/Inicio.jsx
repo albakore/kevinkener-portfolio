@@ -9,7 +9,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { CiLight, CiDark  } from "react-icons/ci";
 
 export default function Inicio() {
-  const { perfil } = GetCV()
+  const { perfil,curriculum } = GetCV()
   const { toggleColorMode } = useColorMode()
   const modoImagen = useColorModeValue('/img/profile/Kevin_Kener_2.jpg','/img/profile/Kevin_Kener.jpg')
   const bg = useColorModeValue('', '')
@@ -38,7 +38,8 @@ export default function Inicio() {
               <Link href={perfil.redes.facebook} isExternal display={'inline-flex'} alignItems={'center'} gap={1}><FaFacebook/>Facebook </Link>
               <Link href={perfil.redes.twitter} isExternal display={'inline-flex'} alignItems={'center'} gap={1}><FaXTwitter/>X </Link> */}
             </Flex>
-            <Button bg={'black'} color={'white'} _hover={{bg:'gray.700', color:'white' }}>Obtener CV</Button>
+            
+            <Button as={Link} download href={curriculum} bg={'black'} color={'white'} _hover={{bg:'gray.700', color:'white' }}>Obtener CV</Button>
           </VStack>
 
         </Flex>

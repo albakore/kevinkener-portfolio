@@ -38,7 +38,7 @@ export default function Proyectos() {
 
 function ProyectoCard({ url, img, alt, titulo, descripcion, tags, children }) {
   const movil = useBreakpointValue({ base: true, md: false });
-  const colorBase = useColorModeValue('', !movil && 'whiteAlpha.50')
+  const colorBase = useColorModeValue('whiteAlpha.400', !movil && 'whiteAlpha.50')
   return (
     <Box
       alignItems={"center"}

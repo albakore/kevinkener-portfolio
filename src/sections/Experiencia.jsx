@@ -1,7 +1,7 @@
 'use client'
 import SeccionPagina from '@/components/SeccionPagina'
 import React, { lazy } from 'react'
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Center, Circle, Container, Flex, Spacer, Stack, StackDivider, Text, useBreakpointValue, useColorModeValue } from '@chakra-ui/react'
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Center, Circle, Container, Flex, Spacer, Stack, StackDivider, Text, VStack, useBreakpointValue, useColorModeValue } from '@chakra-ui/react'
 import { GetCV } from '@/contexts/Portfolio'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -34,16 +34,8 @@ export default function Experiencia() {
 function Periodo({ invertido, children }) {
 	return (
 		<Stack direction={invertido ? { base: 'row-reverse', md: 'row-reverse' } : { base: 'row-reverse', md: 'row' }} justifyContent={'space-between'}
-			// divider={
-			// 	(
-			// 		<StackDivider position={'relative'} h={'100%'} borderColor='gray.200' textAlign={'center'} w={'6px'}>
-			// 			<Circle position={'absolute'} top={'calc(50% - 6px)'} left={'-6px'}  size='12px' bg='gray.300'/>
-			// 		</StackDivider>
-			// 	)
-			// } 
 			w={'100%'} gap={0}>
 			{children}
-
 			<Spacer />
 		</Stack>
 	)
@@ -51,21 +43,22 @@ function Periodo({ invertido, children }) {
 
 
 
-function Empleo({data, invertido = false }) {
+function Empleo({ data, invertido = false }) {
 	const movil = useBreakpointValue({ base: true, md: false });
-	const colorBase = useColorModeValue('', !movil && '#333333')
-	const colorActivo = useColorModeValue('', !movil && '#3d3c3c')
-	const colorAnio = useColorModeValue('gray.300', !movil && '#3d3c3c')
+	const colorBase = useColorModeValue('blackAlpha.200', !movil && '#333333')
+	const colorActivo = useColorModeValue('whiteAlpha.50', !movil && '#3d3c3c')
+	const colorAnio = useColorModeValue('gray.500', !movil && '#3d3c3c')
 	const colorAnioTexto = useColorModeValue('white', !movil && 'white')
-	const colorLinea = useColorModeValue('white', !movil && '#373737')
+	const colorLinea = useColorModeValue('gray.500', !movil && '#373737')
 	const [descripcion, setDescripcion] = React.useState(null)
 
 	React.useEffect(() => {
 		const loadMarkDown = async () => {
-			const markdown = await import("../contexts/experiencia_laboral/unnoba.md")
-			const data = await fetch(markdown.default)
-			const texto = await data.
-			setDescripcion()
+			const markdown = await fetch(data.descripcion)
+			const res = await markdown.text()
+			// const data = await fetch(markdown)
+			// console.log(data2)
+			setDescripcion(res)
 		}
 		loadMarkDown()
 	},[])
@@ -76,18 +69,26 @@ function Empleo({data, invertido = false }) {
 			<Accordion allowMultiple bg={colorActivo} borderRadius={25} w={'100%'} marginInline={6} marginBlock={3}>
 				<AccordionItem  borderRadius={20} bg={colorActivo}>
 					<AccordionButton borderRadius={20} bg={colorBase}>
-						<Box as="span" flex='1' textAlign='left' >
+						{invertido ? <AccordionIcon /> : ''}
+						<Box as="span"
+							flex='1'
+							textAlign={invertido ? 'left' : 'right'}
+							ml={invertido ? 5 : 0}
+							mr={!invertido ? 5 : 0}
+						>
 							<b>{data.empresa}</b>
 							<Text>{data.cargo}</Text>
 						</Box>
 
-						<AccordionIcon />
+						{!invertido ? <AccordionIcon /> : ''}
 
 					</AccordionButton>
 					<AccordionPanel pb={4}>
-						{}
-					{/* <Markdown remarkPlugins={[remarkGfm]}>{descripcion}</Markdown>	 */}
-					{/* {data.descripcion} */}
+
+						<VStack gap={0} alignItems={'start'} justifyContent={'stretch'}>
+						<Markdown remarkPlugins={[remarkGfm]}>{descripcion ? descripcion : ''}</Markdown>
+						</VStack>
+
 					</AccordionPanel>
 				</AccordionItem>
 			</Accordion>

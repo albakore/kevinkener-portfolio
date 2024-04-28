@@ -1,6 +1,7 @@
 export type PerfilCV = {
     perfil: Perfil;
     descripcion: string;
+    curriculum: string;
     habilidades: SectorHabil[];
     experiencia: Experiencia[];
     proyectos: Proyecto[];

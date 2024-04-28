@@ -23,7 +23,7 @@ import { GetCV } from "@/contexts/Portfolio";
 export default function Habilidades() {
 	const { habilidades } = GetCV();
 	const movil = useBreakpointValue({ base: true, md: false });
-	const colorBase = useColorModeValue('gray.100', !movil && 'blackAlpha.200')
+	const colorBase = useColorModeValue('blackAlpha.200', !movil && 'blackAlpha.200')
 	
 	return (
 		<SeccionPagina id="habilidades" noFullHeight={!movil} withScrollY={movil}>
@@ -111,7 +111,7 @@ function Podio() {
 
 function Skill({ icon, titulo, tags, children }) {
 	const movil = useBreakpointValue({ base: true, md: false });
-	const colorActivo = useColorModeValue('gray.50', !movil && 'blackAlpha.300')
+	const colorActivo = useColorModeValue('whiteAlpha.600', !movil && 'blackAlpha.300')
 	return (
 		<Box
 			alignItems={"center"}

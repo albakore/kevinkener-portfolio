@@ -43,14 +43,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" >
       <body>
-        <Suspense fallback={''}>
-          <ChakraProvider theme={theme} >
-            <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-            {children}
-          </ChakraProvider>
-        </Suspense>
+      <ChakraProvider theme={theme} >
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+        {children}
+      </ChakraProvider>
       </body>
-      <Script src="https://web3forms.com/client/script.js" async defer></Script>
+      {/* <Script src="https://web3forms.com/client/script.js" async defer></Script> */}
     </html>
   )
 }
