@@ -133,18 +133,25 @@
     ],
     "proyectos":[
         {
+            "url_imagen":"img/projects/vg_web.png",
+            "titulo":"Valeria Guarino Propiedades",
+            "descripcion":"Sitio web inmobiliario.",
+            "url_proyecto":"https://vg-web-sooty.vercel.app/",
+            "tags": ["Next.js", "Chakra-ui", "Strapi"]
+        },
+        {
             "url_imagen":"img/projects/entrego_ya_admin.png",
             "titulo":"Entrego Ya!",
             "descripcion":"Sistema Logistico con registro, seguimiento y distribucion para el envio de los paquetes, integrado con Mercado Libre.",
             "url_proyecto":"https://entregoya.com.ar/",
-            "tags": ["React.js", "Next.js", "Chakra-ui", "FastAPI", "Python", "Pydantic", "SQL Model", "JWT"]
+            "tags": ["Next.js", "Chakra-ui", "FastAPI", "Python", "Pydantic", "SQL Model", "JWT"]
         },
         {
             "url_imagen":"img/projects/evolutiva.png",
             "titulo":"Evolutiva Consulting",
             "descripcion":"Landing Page para agencia de marketing",
             "url_proyecto":"http://consultingevolutiva.com/",
-            "tags": ["React.js", "Next.js", "Chakra-ui"]
+            "tags": ["Next.js", "Chakra-ui"]
         },
         {
             "url_imagen":"img/projects/lmtokenomics.png",

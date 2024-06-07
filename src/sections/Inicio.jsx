@@ -11,7 +11,9 @@ import { CiLight, CiDark  } from "react-icons/ci";
 export default function Inicio() {
   const { perfil,curriculum } = GetCV()
   const { toggleColorMode } = useColorMode()
-  const modoImagen = useColorModeValue('/img/profile/Kevin_Kener_2.jpg','/img/profile/Kevin_Kener.jpg')
+  const imageLight = <Image src={'/img/profile/Kevin_Kener_2.jpg'}  alt='Kevin Kener'/>
+  const imageDark = <Image src={'/img/profile/Kevin_Kener.jpg'}  alt='Kevin Kener'/>
+  const modoImagen = useColorModeValue(imageLight,imageDark)
   const bg = useColorModeValue('', '')
   const color = useColorModeValue('white', 'gray.800')
   return (
@@ -24,7 +26,8 @@ export default function Inicio() {
           <Box filter={'drop-shadow(-1px 3px 10px #999999 )'} >
           <Box w={{ base: '200px', md: '300px' }} h={{ base: '200px', md: '400px' }} bg={'gray.200'} borderRadius={{ base: 100, md: 5 }} overflow={'hidden'}  clipPath={{base:null,md:"polygon(80px 0%, 100% 0, 100% 80px, 100% calc(100% - 80px), calc(100% - 80px) 100%, 80px 100%, 0 100%, 0% 80px)"}}>
             <Center overflow={'hidden'}>
-              <Image src={modoImagen}  alt='Kevin Kener'/>
+                {/* <Image src={modoImagen}  alt='Kevin Kener'/> */}
+                {modoImagen}
             </Center>
           </Box>
           </Box>
