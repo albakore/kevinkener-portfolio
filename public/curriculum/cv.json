@@ -133,6 +133,13 @@
     ],
     "proyectos":[
         {
+            "url_imagen":"img/projects/quadrivium.png",
+            "titulo":"Quadrivium SRL",
+            "descripcion":"Quadrivium SRL es una empresa dedicada al comercio internacional, con sede en la Ciudad Autónoma de Buenos Aires.",
+            "url_proyecto":"https://quadriviumcomex.com/",
+            "tags": ["Next.js", "Chakra-ui"]
+        },
+        {
             "url_imagen":"img/projects/ututo.png",
             "titulo":"Ututo 11 - GNU/Linux",
             "descripcion":"UTUTO es una distribución del sistema operativo GNU, que usaba su propio núcleo Linux Libre. Fue la primera distribución reconocida como totalmente libre por el Proyecto GNU. El proyecto se dejó de actualizar el 1 de diciembre de 2013 ​y comenzó nuevamente a actualizarse con un nuevo equipo de usuarios y una comunidad creciente a partir de enero de 2024.",
